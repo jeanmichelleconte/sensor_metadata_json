@@ -54,7 +54,7 @@ def retrieve_via_httpx(uri: str):
     
 def validate_data(data, schema):
     registry = resolve_references()
-    validator = jsonschema.Draft7Validator(schema, registry=registry)
+    validator = jsonschema.Draft7Validator(schema, registry=registry,format_checker=jsonschema.Draft7Validator.FORMAT_CHECKER)
 
     try :
         validator.validate(data)
@@ -252,7 +252,8 @@ def main():
         # fname = 'json_sensors/sensor-WETLABS-ECO_FLBBCD-3666.json'
         # fname = 'json_sensors/sensor-SBE-SEAFET-11341.json'
         # fname = 'json_platforms/platform-SBE-NAVIS_EBR-1101.json'
-        fname = 'json_floats/float-SBE-NAVIS_EBR-1101.json'
+         fname = 'json_floats/float-SBE-NAVIS_EBR-1101.json'
+        # fname=r"C:\Users\jleconte\Documents\OEM\sensor_metadata_json\json_sensors\sensor-RBR-RBR_ARGO3-205908-gen.json"
         
     # Load JSON sensor instance data 
     data_dir = Path.cwd() 

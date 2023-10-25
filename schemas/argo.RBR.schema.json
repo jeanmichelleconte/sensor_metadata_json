@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "http://schema.nerc.ac.uk/schemas/sensor/0.1.0/argo.RBR.schema.json",
+    "$id": "http://schema.nerc.ac.uk/schemas/sensor/0.1/argo.RBR.schema.json",
     "title": "JSON Schema for Argo Program Sensors",
     "description": "A JSON Schema used to populate Argo float sensor and parameter metadata elements specific to RBR.  ",
     "version" : {"const" : "0.1"},
@@ -10,28 +10,20 @@
             "type": "object",
             "properties": {
                 "vendor_schema" : true,
-                "version" : true,
-                "RBR_foo1": {
-                    "type": "number"
-                },
-                "RBR_foo2": {
-                    "type": "string"
+                "version" : {"$ref": "#/version"},
+                "manufacturing_date": {
+                    "type": "string",
+                    "format": "date"
                 }
             },
-            "required" : ["RBR_foo1", "RBR_foo2"],
+            "required" : ["vendor_schema", "version", "manufacturing_date"],
             "additionalProperties" : false
         },
         "parameter_vendorinfo": {
             "type": "object",
             "properties": {
                 "vendor_schema" : true,
-                "version" : true,
-                "RBR_foo3": {
-                    "type": "number"
-                },
-                "RBR_foo4": {
-                    "type": "string"
-                }
+                "version" : {"$ref": "#/version"}
             },
             "additionalProperties" : false
         },
@@ -39,28 +31,27 @@
             "type": "object",
             "properties": {
                 "vendor_schema" : true,
-                "version" : true,
+                "version" : {"$ref": "#/version"},
                 "certificate": {
                     "type" : "string",
                     "format": "uri",
-                    "desription" : "Link to calibration certificate"
+                    "description" : "Link to calibration certificate"
                 }
             },
-            "required" : ["certificate"],
+            "required" : [],
             "additionalProperties" : false
         },
         "instrument_vendorinfo": {
             "type": "object",
             "properties": {
                 "vendor_schema" : true,
-                "version" : true,
-                "RBR_foo7": {
-                    "type": "number"
-                },
-                "RBR_foo8": {
-                    "type": "string"
+                "version" : {"$ref": "#/version"},
+                "manufacturing_date": {
+                    "type": "string",
+                    "format": "date"
                 }
             },
+            "required" : ["vendor_schema", "version", "manufacturing_date"],
             "additionalProperties" : false
         }
 

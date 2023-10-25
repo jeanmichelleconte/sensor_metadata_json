@@ -158,6 +158,7 @@
                     "type": "string",
                     "enum": [
                         "None",
+                        "RBR",
                         "SBE"
                     ],
                     "default": "None"
@@ -185,6 +186,15 @@
                     },
                     "then": { 
                         "$ref": "./argo.SBE.schema.json#/$defs/instrument_vendorinfo"
+                    }
+                },
+                {
+                    "if": {
+                        "properties": { "vendor_schema": { "const": "RBR" } },
+                        "required": [ "vendor_schema"]
+                    },
+                    "then": { 
+                        "$ref": "./argo.RBR.schema.json#/$defs/instrument_vendorinfo"
                     }
                 }
             ]
